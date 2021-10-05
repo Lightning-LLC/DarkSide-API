@@ -1096,7 +1096,7 @@ Callback("Rendering", function() {
 
 [back to Contents](#-1)
 ---
-# <a name="7"></a>Cheat
+# <a name="8"></a>Cheat
 ---
 
 
@@ -1212,5 +1212,6 @@ Callback("Rendering", function() {
 ```
 
 
-
+[back to Contents](#-1)
+---
 
