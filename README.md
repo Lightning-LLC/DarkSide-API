@@ -13,6 +13,8 @@ Official JavaScript API for DarkSide
 |[Config](#1)|
 |[ConVars](#2)|
 |[Exploit](#3)|
+|[Rendering](#4)|
+|[Rendering3D](#5)|
 
 ---
 
@@ -471,4 +473,13 @@ Callback("Rendering", function() {
 ```
 
 [back to Contents](#-1)
+---
+# <a name="4"></a>Rendering
+---
+
+
+
+[back to Contents](#-1)
+---
+# <a name="5"></a>Rendering3D
 ---
