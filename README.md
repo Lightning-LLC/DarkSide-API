@@ -15,6 +15,7 @@ Official JavaScript API for DarkSide
 |[Exploit](#3)|
 |[Rendering](#4)|
 |[Rendering3D](#5)|
+|[Event](#6)|
 
 ---
 
@@ -982,7 +983,88 @@ Callback("Rendering", function() {
 
 [back to Contents](#-1)
 ---
+# <a name="6"></a>Event
+---
 
+## Event.GetInt
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Name | string | Event Name |
+
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | int | Event Value |
+
+
+
+
+```java
+Callback("player_death", function() {
+  var value = Event.GetInt("attacker")
+});
+```
+
+
+## Event.GetFloat
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Name | string | Event Name |
+
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | float | Event Value |
+
+
+
+
+```java
+Callback("bullet_impact", function() {
+  var HitX = Event.GetInt("x")
+});
+```
+
+
+## Event.GetString
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Name | string | Event Name |
+
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | string | Event Value |
+
+
+
+
+```java
+Callback("player_hurt", function() {
+  var dmgleftstr = Event.GetString("dmg_health")
+});
+```
 
 
 
