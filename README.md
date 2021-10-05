@@ -311,6 +311,23 @@ Misc.AntiUntrusted  - bool
 SkinChanger.Agents.T  - int
 SkinChanger.Agents.CT - int
 
+//Binds
+
+Binds.OverrideDamage
+Binds.Safepoint
+Binds.BodyAim
+Binds.Doubletap
+Binds.HideShot
+Binds.Inverter
+Binds.Manual.Left
+Binds.Manual.Right
+Binds.Manual.Back
+Binds.Manual.Forward
+Binds.FakeDuck
+Binds.SlowMotion
+Binds.Thirdperson
+Binds.PeekAssist
+
 ```
 
 
