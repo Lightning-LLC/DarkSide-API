@@ -11,7 +11,7 @@ Official JavaScript API for DarkSide
 |--------|
 |[Menu](#0)|
 |[Config](#1)|
-
+|[ConVars](#2)|
 
 ---
 
@@ -109,7 +109,7 @@ Callback("Rendering", function() {
 ```java
 Menu.Checkbox("Test","TestReference")
 Callback("Rendering", function() {
-  Config.SetBool(Script.TestReference", false)
+  Config.SetBool("Script.TestReference", false)
   if(Config.GetBool("Script.TestReference")) {
     Cheat.Print([255,255,255], "On")
   }
@@ -217,3 +217,185 @@ Callback("Rendering", function() {
 });
 ```
 
+[back to Contents](#-1)
+---
+# <a name="2"></a>ConVars
+---
+
+## ConVars.SetInt
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+| Value | int | New value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  ConVars.SetInt("cl_lagcompensation", 0)
+});
+```
+
+
+## ConVars.SetFloat
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+| Value | float | New value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  ConVars.SetFloat("r_modelAmbientMin", 1.0)
+});
+```
+
+
+## ConVars.SetBool
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+| Value | bool | New value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  ConVars.SetBool("cl_lagcompensation", false)
+});
+```
+
+
+
+## ConVars.SetString
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+| Value | string | New value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  ConVars.SetString("cl_downloadfilter", "none")
+});
+```
+
+
+## ConVars.GetInt
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | int | value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Value = ConVars.GetInt("cl_lagcompensation")
+});
+```
+
+
+## ConVars.GetFloat
+
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | float | value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Value = ConVars.GetFloat("r_modelAmbientMin")
+});
+```
+
+
+## ConVars.GetBool
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | bool | value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Value = ConVars.GetBool("cl_lagcompensation")
+});
+```
+
+
+
+## ConVars.GetString
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Reference | string | ConVar name |
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Value | string | value |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Value = ConVars.GetString("cl_downloadfilter")
+});
+```
