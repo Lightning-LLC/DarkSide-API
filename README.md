@@ -521,7 +521,6 @@ Callback("Rendering", function() {
 4: Skeet Pixel 12
 5: Small Pixel 12
 6: Weapon Icon 28 [Undefeated]
-
 ```
 
 **Render Flags**
@@ -749,3 +748,128 @@ Callback("Rendering", function() {
 ---
 # <a name="5"></a>Rendering3D
 ---
+
+
+
+## Rendering3D.Circle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector3D | Center Position |
+| Radius | float | Radius |
+| Color | int Array[4] | Color |
+| Thickness | float | Thickness |
+| Points | int | Segment Points |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.Circle([50,50,0],25.0,[255,255,255,255],4.0,40)
+});
+```
+
+
+
+
+
+## Rendering3D.GradientCircle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector3D | Center Position |
+| Radius | float | Radius |
+| Outer | int Array[4] | Color |
+| Inner | int Array[4] | Color |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.GradientCircle([50,50,0],20.0,[255,255,255,0],[255,255,255,255])
+});
+```
+
+
+
+
+
+
+## Rendering3D.FilledCircle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector3D | Center Position |
+| Radius | float | Radius |
+| Color | int Array[4] | Color |
+| Points | int | Segment Points |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.FilledCircle([50,50,0],25.0,[255,255,255,255],40)
+});
+```
+
+
+
+## Rendering3D.Line
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start Pos | Vector3D | Start Position |
+| End Pos | Vector3D | End Position |
+| Color | int Array[4] | Color |
+| Thickness | float | Line Thickness |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.Line([50,50,50],[50,70,50],[255,255,255,255],3.0)
+});
+```
+
+
+
+## Rendering3D.GlowLine
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start Pos | Vector3D | Start Position |
+| End Pos | Vector3D | End Position |
+| Color | int Array[4] | Color |
+| Thickness | float | Line Thickness |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.GlowLine([50,50,50],[50,70,50],[255,255,255,255],3.0)
+});
+```
+
+
+
+
+
+
+
+
+
