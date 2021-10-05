@@ -3,7 +3,7 @@ Official JavaScript API for DarkSide
 
 <a name="-1"></a>
 
-**Important** - Feel free to open an Issue if you have a suggestion or need clarrification.
+**Important** - Not Full API Documentation, Go to DarkSides Forum for Full Documentation
 
 
 
