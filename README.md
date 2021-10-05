@@ -479,6 +479,272 @@ Callback("Rendering", function() {
 
 
 
+## Rendering.Line
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start | Vector2D | Start of Line |
+| End | Vector2D | End of Line |
+| Color | int Array[4] | Color of Line |
+| Thickness | float | Thickness of Line |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.Line([50,50],[80,50],[255,255,255,255],1.0);
+});
+```
+
+## Rendering.Text
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Position of Text |
+| Color | int Array[4] | Color of Text |
+| Flags | int | Render Flags |
+| font | int | Font Index |
+
+
+**Fonts**
+```
+0: Corbel 12
+1: Corbel 11
+2: Corbel 14
+3: Calibri Bold 29
+4: Skeet Pixel 12
+5: Small Pixel 12
+6: Weapon Icon 28 [Undefeated]
+
+```
+
+**Render Flags**
+```
+RenderFlags::None = 0
+RenderFlags::Outlined = 1
+RenderFlags::CenteredX = 2
+RenderFlags::CenteredY = 4
+RenderFlags::Shadow = 8
+RenderFlags::CenteredX_And_Y = 2 + 4 = 6
+```
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.Text([ 1920 / 2, 1080 / 2], [170,170,255,255], 5, 1, "Test")
+});
+```
+
+
+
+## Rendering.Image
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Path | String | Path to the Image |
+| Pos | Vector2D | Top Left Position of Image |
+| Size | Vector2D | Size of the Image |
+| Color | int Array[4] | Max Color |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.Image("C:\Test.png", [30,30],[50,50],[255,255,255,255])
+});
+```
+
+
+## Rendering.FilledRectangle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Top Left Position of Rectangle |
+| Size | Vector2D | Size of the Rectangle |
+| Color | int Array[4] | Color |
+| Rounding | float | Edge Rounding |
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.FilledRectangle([50,50],[40,40],[255,255,255,255],5.0)
+});
+```
+
+
+
+## Rendering.Rectangle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Top Left Position of Rectangle |
+| Size | Vector2D | Size of the Rectangle |
+| Color | int Array[4] | Color |
+| Thickness | float | Thickness |
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.Rectangle([50,50],[40,40],[255,255,255,255],1.0)
+});
+```
+
+
+
+## Rendering.Arc
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Center Position |
+| Radius | float | Radius |
+| Start | float | Start angle |
+| End | float | End angle |
+| Segments | int | Segments |
+| Color | int Array[4] | Color |
+| Closed | bool | Close |
+| Thickness | float | Thickness |
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.Arc([50,50],40.0,0,3.14,40,[255,255,255,255],false,1.0)
+});
+```
+
+
+
+## Rendering.FilledArc
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Center Position |
+| Radius | float | Radius |
+| Start | float | Start angle |
+| End | float | End angle |
+| Segments | int | Segments |
+| Color | int Array[4] | Color |
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.FilledArc([50,50],40.0,0,3.14,40,[255,255,255,255])
+});
+```
+
+
+
+
+## Rendering.Circle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Center Position |
+| Radius | float | Radius |
+| Color | int Array[4] | Color |
+| Segments | int | Segments |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.FilledArc([50,50],40.0,[255,255,255,255],40)
+});
+```
+
+## Rendering.FilledCircle
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Center Position |
+| Radius | float | Radius |
+| Color | int Array[4] | Color |
+| Segments | int | Segments |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering.FilledArc([[50,50],40.0,[255,255,255,255],40)
+});
+```
+
+
+## Rendering.WorldToScreen
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector3D | 3D Position |
+
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Screen | Vector2D | 2D Screen Position |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Screen = Rendering.WorldToScreen([50,50,50])
+});
+```
+
+
+
+
+## Rendering.GetScreenSize
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Screen Size | Vector2D | 2D Screen Size |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Screen = Rendering.GetScreenSize();
+});
+```
+
+
+
 [back to Contents](#-1)
 ---
 # <a name="5"></a>Rendering3D
