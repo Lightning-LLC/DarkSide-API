@@ -1,4 +1,4 @@
-# DarkSide-API
+# DarkSide API
 Official JavaScript API for DarkSide
 
 <a name="-1"></a>
@@ -16,6 +16,8 @@ Official JavaScript API for DarkSide
 |[Rendering](#4)|
 |[Rendering3D](#5)|
 |[Event](#6)|
+|[Sound](#7)|
+|[Cheat](#8)|
 
 ---
 
@@ -1063,6 +1065,149 @@ Callback("bullet_impact", function() {
 ```java
 Callback("player_hurt", function() {
   var dmgleftstr = Event.GetString("dmg_health")
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="7"></a>Sound
+---
+
+
+## Sound.Play
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Directory | string | File Directory |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  Sound.Play("C:\AnimeMoan.wav");
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="7"></a>Cheat
+---
+
+
+## Cheat.SetClanTag
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Clantag | string | Clantag |
+| Clan name | string | Clan name |
+
+
+
+```java
+Callback("Rendering", function() {
+  Cheat.SetClanTag("darkside    |", "Darkside")
+});
+```
+
+
+## Cheat.Print
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Color | int Array[4] | Color |
+| Text | string | Text |
+
+
+
+```java
+Callback("Rendering", function() {
+  Cheat.Print([255,255,255,255], "Hello from Kwitty!")
+});
+```
+
+## Cheat.Log
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Color | int Array[4] | Color |
+| Text | string | Text |
+
+
+
+```java
+Callback("Rendering", function() {
+  Cheat.Log([255,255,255,255], "Hello from Kwitty!")
+});
+```
+
+
+
+## Cheat.ExecuteClientCommand
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Command | string | Console Command |
+
+
+
+```java
+Callback("Rendering", function() {
+  Cheat.ExecuteClientCommand("sv_cheats 1")
+});
+```
+
+
+## Cheat.GetChokedCommands
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Choked Ticks | int | Choked Command |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Choked = Cheat.GetChokedCommands();
+});
+```
+
+## Cheat.GetUsername
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Username | string | Current Username |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Username = Cheat.GetUsername();
 });
 ```
 
