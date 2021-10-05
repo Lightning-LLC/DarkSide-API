@@ -220,6 +220,101 @@ Callback("Rendering", function() {
 });
 ```
 
+**Config Variable Names**
+```java
+
+//Rage
+
+Ragebot.Enable    - bool
+Ragebot.SilentAim - bool
+Ragebot.AutoFire  - bool
+Ragebot.ZeusBot   - bool
+Ragebot.MaxFov    - int
+Ragebot.AutoScope - int
+
+//Weapon Default
+
+Ragebot.Weapons<0>.Enable                     - bool
+Ragebot.Weapons<0>.Hitboxes.Multipoint        - int
+Ragebot.Weapons<0>.PointScale                 - bool
+Ragebot.Weapons<0>.PointScale.Head            - int
+Ragebot.Weapons<0>.PointScale.Body            - int
+Ragebot.Weapons<0>.Damage.Minumum             - int
+Ragebot.Weapons<0>.Damage.Override            - int
+Ragebot.Weapons<0>.Hitchance                  - int 
+Ragebot.Weapons<0>.Hitchance.Doubletap        - int
+Ragebot.Weapons<0>.AutoStop                   - bool
+Ragebot.Weapons<0>.AutoStop.Options           - int
+Ragebot.Weapons<0>.MaxMissesBeforeSafepoint   - int
+Ragebot.Weapons<0>.Hitboxes                   - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Prefer  - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Force   - int
+
+//Weapon Overrides
+
+Ragebot.Weapons<0>.OverrideDefault            - bool
+Ragebot.Weapons<0>.Hitboxes.Multipoint        - int
+Ragebot.Weapons<0>.PointScale                 - bool
+Ragebot.Weapons<0>.PointScale.Head            - int
+Ragebot.Weapons<0>.PointScale.Body            - int
+Ragebot.Weapons<0>.Damage.Minumum             - int
+Ragebot.Weapons<0>.Damage.Override            - int
+Ragebot.Weapons<0>.Hitchance                  - int 
+Ragebot.Weapons<0>.Hitchance.Doubletap        - int
+Ragebot.Weapons<0>.AutoStop                   - bool
+Ragebot.Weapons<0>.AutoStop.Options           - int
+Ragebot.Weapons<0>.MaxMissesBeforeSafepoint   - int
+Ragebot.Weapons<0>.Hitboxes                   - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Prefer  - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Force   - int
+
+//Exploits
+
+Exploits.Defensive          - bool
+Exploits.AntiDefensive      - bool
+Exploits.CustomSpeed        - bool
+Exploits.CustomSpeed.Speed  - int
+Exploits.ShootTwice         - bool
+Exploits.IdealTick          - bool
+Exploits.IdealTick.Slow     - bool
+Exploits.Teleport.Boost     - bool
+Exploits.DefensiveFlags     - int
+
+//AntiAim
+
+AntiAim.Enable              - bool
+AntiAim.Pitch               - int
+AntiAim.Yaw                 - int
+AntiAim.Offset              - int
+AntiAim.Yaw.Modifier        - int
+AntiAim.Yaw.Modifier.Offset - int
+AntiAim.Desync              - int
+AntiAim.Desync.Delta        - int
+AntiAim.Desync.LowerBodyYaw - int 
+AntiAim.LegMovement         - int
+
+//FakeLag
+
+Fakelag.Mode          - int
+Fakelag.Limit         - int
+Fakelag.Randomization - int
+
+//Misc
+
+Misc.BunnyHop       - bool
+Misc.AutoStrafe     - bool
+Misc.Knifebot       - bool
+Misc.AntiUntrusted  - bool
+
+//SkinChanger
+
+SkinChanger.Agents.T  - int
+SkinChanger.Agents.CT - int
+
+```
+
+
+
 [back to Contents](#-1)
 ---
 # <a name="2"></a>ConVars
