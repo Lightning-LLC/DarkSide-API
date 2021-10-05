@@ -12,6 +12,7 @@ Official JavaScript API for DarkSide
 |[Menu](#0)|
 |[Config](#1)|
 |[ConVars](#2)|
+|[Exploit](#3)|
 
 ---
 
@@ -399,3 +400,75 @@ Callback("Rendering", function() {
   var Value = ConVars.GetString("cl_downloadfilter")
 });
 ```
+
+[back to Contents](#-1)
+---
+# <a name="3"></a>Exploit
+---
+
+## Exploit.GetCharge
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Charge | bool | Returns true if Charged |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Value = Exploit.GetCharge()
+});
+```
+
+## Exploit.ForceRecharge
+
+### Forces Recharge
+
+**[WARNING] Do not Force Charge Twice**
+
+```java
+Callback("Rendering", function() {
+  if(!Exploit.GetCharge()) {
+    Exploit.ForceRecharge()
+  }
+});
+```
+
+## Exploit.ForceTeleport
+
+### Forces Teleport if Exploit is Recharged
+
+**This will Release Exploit Charge**
+
+```java
+Callback("Rendering", function() {
+  if(Exploit.GetCharge()) {
+    Exploit.ForceTeleport()
+  }
+});
+```
+
+## Exploit.OverrideSpeed
+
+
+### Parameters:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Ticks | int | New Ticks Skipped |
+
+**Only Works for 1 Tick**
+
+**[WARNING] There is no Clamp, therefore NOT Recommended to Override over 15**
+
+
+```java
+Callback("Rendering", function() {
+  Exploit.OverrideSpeed(15)
+});
+```
+
+[back to Contents](#-1)
+---
