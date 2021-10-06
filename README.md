@@ -21,6 +21,11 @@ Official JavaScript API for DarkSide
 |[Ragebot](#9)|
 |[AntiAim](#10)|
 |[Fakelag](#11)|
+|[Engine](#12)|
+|[Resolver](#13)|
+|[Animation](#14)|
+|[Prediction](#15)|
+
 
 ---
 
@@ -1509,3 +1514,284 @@ Callback("Rendering", function() {
 ---
 # <a name="11"></a>Fakelag
 ---
+
+## Fakelag.OverrideFakelag
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| New max Choke | int | New Fakelag max Choke |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  Fakelag.OverrideFakelag(15);
+});
+```
+
+## Fakelag.PacketSent
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Packet State | bool | Is Packet Sent |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var SentPacket = Fakelag.PacketSent();
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="12"></a>Engine
+---
+
+## Engine.InGame
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| State | bool | True if InGame |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var InGame = Engine.InGame();
+});
+``` 
+
+## Engine.MaxClients 
+
+**Use Globals.MaxClients Instead!! DO NOT USE UNLESS Globals.MaxClients FAIL!!**
+
+**FPS mitigation Warning [LOWERS FPS DRASTICLY]**
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| MaxClients | int | Totals Clients in Game |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Clients = Engine.MaxClients()
+});
+``` 
+
+## Engine.GetViewAngles 
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| ViewAngles | Vector2D | Pitch and Yaw |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var VA = Engine.GetViewAngles();
+});
+``` 
+
+[back to Contents](#-1)
+---
+# <a name="13"></a>Resolver
+---
+
+## Resolver.ForceSide
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+| Side | int | New Side |
+
+```
+0  - Disabled
++1 - Right
+-1 - Left
+```
+
+
+```java
+Callback("Rendering", function() {
+  Resolver.ForceSide(Entity.GetLocalPlayer(),0)
+});
+```
+
+## Resolver.ForceDelta
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+| Delta | float | New Desync Delta |
+
+**0 Minimum, 60 Maximum**
+
+```java
+Callback("Rendering", function() {
+  Resolver.ForceSide(Entity.GetLocalPlayer(),30)
+});
+```
+
+## Resolver.ForceGoalFeetYaw
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+| Delta | float | New Goal Feet Yaw |
+
+
+```java
+Callback("Rendering", function() {
+  var ViewAngles = Engine.GetViewAngles()
+  Resolver.ForceGoalFeetYaw(Entity.GetLocalPlayer(), [ViewAngles[0], ViewAngles[1],0.0])
+});
+```
+
+
+
+
+
+[back to Contents](#-1)
+---
+# <a name="14"></a>Animation
+---
+
+
+## Animation.OverrideGoalFeetYaw
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+| Delta | float | New Goal Feet Yaw |
+
+
+
+```java
+Callback("Rendering", function() {
+  var ViewAngles = Engine.GetViewAngles()
+  Animation.OverrideGoalFeetYaw(Entity.GetLocalPlayer(), [ViewAngles[0], ViewAngles[1],0.0])
+});
+```
+
+
+## Animation.GetSequenceActivity
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Sequence | int | Animation Layer Sequence |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Activity | int | Sequence Activity |
+
+
+```java
+Callback("Rendering", function() {
+  var ViewAngles = Engine.GetViewAngles()
+  Animation.GetSequenceActivity(Animation.GetAnimationOverlay(Entity.GetLocalPlayer(),3)[6])
+});
+```
+
+## Animation.GetAnimationOverlay
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+| Index | int | Animation Overlay Index |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Animation Overlay | CPlayerAnimationOverlay | Animation Overlay |
+
+
+```java
+Callback("Rendering", function() {
+  var ViewAngles = Engine.GetViewAngles()
+  var AnimationOverlay3 = Animation.GetAnimationOverlay(Entity.GetLocalPlayer(),3)
+  Animation.GetSequenceActivity(AnimationOverlay3[6])
+});
+```
+
+
+## Animation.GetAnimationState
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Player | Entity | Player to Override |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Animation State | CPlayerAnimationState | Player Animation State |
+
+
+```java
+Callback("Rendering", function() {
+  var AnimState = Animation.GetAnimationState(Entity.GetLocalPlayer())
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="15"></a>Prediction
+---
+
