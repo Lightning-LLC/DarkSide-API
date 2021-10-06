@@ -1,7 +1,7 @@
 //vars
 Menu.Checkbox("Memes","m_bMemesEnabled")
 Menu.Slider("Meme Min", "m_flMemeMin", -60, 0)
-Menu.Slider("Meme Max", "m_flMemeMax", 60, 0)
+Menu.Slider("Meme Max", "m_flMemeMax", 0, 60)
 
 const Min = Config.GetInt("Script.m_flMemeMin");
 const Min = Config.GetInt("Script.m_flMemeMax");
