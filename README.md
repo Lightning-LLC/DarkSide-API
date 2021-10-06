@@ -1226,14 +1226,14 @@ Callback("Rendering", function() {
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| Color | int Array[4] | Color |
 | Text | string | Text |
+| Color | int Array[4] | Color |
 
 
 
 ```java
 Callback("Rendering", function() {
-  Cheat.Print([255,255,255,255], "Hello from Kwitty!")
+  Cheat.Print("Hello from Kwitty!",[255,255,255,255])
 });
 ```
 
@@ -1244,14 +1244,13 @@ Callback("Rendering", function() {
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| Color | int Array[4] | Color |
 | Text | string | Text |
-
+| Color | int Array[4] | Color |
 
 
 ```java
 Callback("Rendering", function() {
-  Cheat.Log([255,255,255,255], "Hello from Kwitty!")
+  Cheat.Log("Hello from Kwitty!",[255,255,255,255])
 });
 ```
 
@@ -1308,6 +1307,24 @@ Callback("Rendering", function() {
 ```java
 Callback("Rendering", function() {
   var Username = Cheat.GetUsername();
+});
+```
+
+## Cheat.InAir
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| IsInAir | bool | Current Cheat Movement State |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var InAir = Cheat.InAir()
 });
 ```
 
