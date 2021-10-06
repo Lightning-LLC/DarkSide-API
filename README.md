@@ -26,6 +26,7 @@ Official JavaScript API for DarkSide
 |[Animation](#14)|
 |[Prediction](#15)|
 |[Data Structures](#16)|
+|[Sound](#17)|
 
 
 ---
@@ -1902,5 +1903,217 @@ Callback("Rendering", function() {
    var weapdefind = Entity.GetWeaponItemDefinitionIndex(LocalPlayer);
    var VAng = Engine.GetViewAngles();
    var Predicted = Prediction.PredictNade(Entity.GetEyePosition(LocalPlayer), Entity.GetVelocity(LocalPlayer),[VAng[0],VAng[1],0],weapdefind);
+});
+```
+
+[back to Contents](#-1)
+---
+# <a name="16"></a>Data Structures
+---
+
+### CMenuVariables -> String
+
+```java
+
+//Rage
+
+Ragebot.Enable    - bool
+Ragebot.SilentAim - bool
+Ragebot.AutoFire  - bool
+Ragebot.ZeusBot   - bool
+Ragebot.MaxFov    - int
+Ragebot.AutoScope - int
+
+//Weapon Default
+
+Ragebot.Weapons<0>.Enable                     - bool
+Ragebot.Weapons<0>.Hitboxes.Multipoint        - int
+Ragebot.Weapons<0>.PointScale                 - bool
+Ragebot.Weapons<0>.PointScale.Head            - int
+Ragebot.Weapons<0>.PointScale.Body            - int
+Ragebot.Weapons<0>.Damage.Minumum             - int
+Ragebot.Weapons<0>.Damage.Override            - int
+Ragebot.Weapons<0>.Hitchance                  - int 
+Ragebot.Weapons<0>.Hitchance.Doubletap        - int
+Ragebot.Weapons<0>.AutoStop                   - bool
+Ragebot.Weapons<0>.AutoStop.Options           - int
+Ragebot.Weapons<0>.MaxMissesBeforeSafepoint   - int
+Ragebot.Weapons<0>.Hitboxes                   - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Prefer  - int
+Ragebot.Weapons<0>.Hitboxes.Safepoint.Force   - int
+
+//Weapon Overrides
+
+Ragebot.Weapons<1>.OverrideDefault            - bool
+Ragebot.Weapons<1>.Hitboxes.Multipoint        - int
+Ragebot.Weapons<1>.PointScale                 - bool
+Ragebot.Weapons<1>.PointScale.Head            - int
+Ragebot.Weapons<1>.PointScale.Body            - int
+Ragebot.Weapons<1>.Damage.Minumum             - int
+Ragebot.Weapons<1>.Damage.Override            - int
+Ragebot.Weapons<1>.Hitchance                  - int 
+Ragebot.Weapons<1>.Hitchance.Doubletap        - int
+Ragebot.Weapons<1>.AutoStop                   - bool
+Ragebot.Weapons<1>.AutoStop.Options           - int
+Ragebot.Weapons<1>.MaxMissesBeforeSafepoint   - int
+Ragebot.Weapons<1>.Hitboxes                   - int
+Ragebot.Weapons<1>.Hitboxes.Safepoint.Prefer  - int
+Ragebot.Weapons<1>.Hitboxes.Safepoint.Force   - int
+
+//Exploits
+
+Exploits.Defensive          - bool
+Exploits.AntiDefensive      - bool
+Exploits.CustomSpeed        - bool
+Exploits.CustomSpeed.Speed  - int
+Exploits.ShootTwice         - bool
+Exploits.IdealTick          - bool
+Exploits.IdealTick.Slow     - bool
+Exploits.Teleport.Boost     - bool
+Exploits.DefensiveFlags     - int
+
+//Visuals
+
+Visuals.Keybinds  - bool
+Visuals.Watermark - bool
+
+//AntiAim
+
+AntiAim.Enable              - bool
+AntiAim.Pitch               - int
+AntiAim.Yaw                 - int
+AntiAim.Offset              - int
+AntiAim.Yaw.Modifier        - int
+AntiAim.Yaw.Modifier.Offset - int
+AntiAim.Desync              - int
+AntiAim.Desync.Delta        - int
+AntiAim.Desync.LowerBodyYaw - int 
+AntiAim.LegMovement         - int
+
+//FakeLag
+
+Fakelag.Mode          - int
+Fakelag.Limit         - int
+Fakelag.Randomization - int
+
+//Misc
+
+Misc.BunnyHop       - bool
+Misc.AutoStrafe     - bool
+Misc.Knifebot       - bool
+Misc.AntiUntrusted  - bool
+Misc.AutoPeek.Glow  - bool
+
+//SkinChanger
+
+SkinChanger.Agents.T  - int
+SkinChanger.Agents.CT - int
+
+
+```
+
+### CBinds -> String
+
+
+```
+Binds.OverrideDamage
+Binds.Safepoint
+Binds.BodyAim
+Binds.Doubletap
+Binds.HideShot
+Binds.Inverter
+Binds.Manual.Left
+Binds.Manual.Right
+Binds.Manual.Back
+Binds.Manual.Forward
+Binds.FakeDuck
+Binds.SlowMotion
+Binds.Thirdperson
+Binds.PeekAssist
+```
+
+### CGrenadeItemDefinitionIndex  -> int 
+
+```
+WEAPON_FLASHBANG            : 43
+WEAPON_HEGRENADE            : 44
+WEAPON_SMOKEGRENADE         : 45
+WEAPON_MOLOTOV              : 46
+WEAPON_DECOY                : 47
+WEAPON_INC                  : 48
+```
+
+### CPlayerAnimationState -> int 
+
+```
+CPlayerAnimationState : int ->
+GoalFeetYaw = 0
+AccelerationX = 1
+AccelerationY = 2
+AcceleratoinZ = 3
+AccelerationWeight = 4
+ActionWeightBiasLeft = 5
+InBalanceStarted = 6
+AimMatrixTransition = 7
+AimMatrixDelay = 8
+MaxPitch = 9
+MinPitch = 10
+MaxYaw = 11
+MinYaw = 12
+DuckAmmount = 13
+ModelIndex = 14
+SmoothedCameraZ = 15
+CrouchGroundFraction = 16
+AdditionalDuck = 17
+Pitch = 18
+Yaw = 19
+FootLerp = 20
+InAirSmoothModifier = 21
+JumpToFall = 22
+LadderSpeed = 23
+LadderWeight = 24
+LandAnimModifier = 25
+LastClientSideAnimationUpdateTimeDelta = 26
+MoveWeight = 27
+MoveYaw = 28
+MoveYawRelativeToMoveYawIdeal = 29
+MoveYawIdeal = 30
+```
+
+### CPlayerAnimationOverlay -> int 
+
+
+```
+BlendIn         = 0
+Cycle           = 1
+PlaybackRate    = 2
+PreviousCycle   = 3
+Weight          = 4
+WeightDeltaRate = 5
+Sequence        = 6
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="17"></a>Sound
+---
+
+## Sound.Play
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Direction | string | SoundFile Location |
+
+**Supported .wav, .mp3**
+
+
+```java
+Callback("Rendering", function() {
+  Sound.Play("C:\AnimeMoan.wav")
 });
 ```
