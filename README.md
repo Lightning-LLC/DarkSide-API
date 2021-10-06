@@ -595,6 +595,98 @@ Callback("Rendering", function() {
 });
 ```
 
+## Exploit.OverrideDefensive
+
+
+### Parameters:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Enable Defensive |
+
+
+
+```java
+Callback("Rendering", function() {
+  Exploit.OverrideDefensive(true)
+});
+```
+
+## Exploit.OverrideTeleport
+
+
+### Parameters:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Enable CLMove Shifting |
+
+
+```java
+Callback("Rendering", function() {
+  Exploit.OverrideTeleport(true)
+});
+```
+
+## Exploit.IsDefensive
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Defensive Enabled |
+
+
+```java
+Callback("Rendering", function() {
+  var DefensiveDoubletap = Exploit.IsDefensive();
+});
+```
+
+## Exploit.IsSpeedOverride
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Speed Override Enabled |
+
+
+```java
+Callback("Rendering", function() {
+  var SpeedOverrideEnabled = Exploit.IsSpeedOverride();
+});
+```
+
+## Exploit.IsTeleportBoost
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Teleport Boost Enabled [not CLMove] |
+
+
+```java
+Callback("Rendering", function() {
+  var TeleportBoostEnabled = Exploit.IsTeleportBoost();
+});
+```
+
+## Exploit.IsTeleport
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Teleport Enabled [CLMove] |
+
+
+```java
+Callback("Rendering", function() {
+  var TeleportEnabled = Exploit.IsTeleport();
+});
+```
+
+
 [back to Contents](#-1)
 ---
 # <a name="4"></a>Rendering
