@@ -25,6 +25,7 @@ Official JavaScript API for DarkSide
 |[Resolver](#13)|
 |[Animation](#14)|
 |[Prediction](#15)|
+|[Data Structures](#16)|
 
 
 ---
@@ -1756,6 +1757,18 @@ Callback("Rendering", function() {
 | Animation Overlay | CPlayerAnimationOverlay | Animation Overlay |
 
 
+```
+CPlayerAnimationOverlay : int ->
+BlendIn         = 0
+Cycle           = 1
+PlaybackRate    = 2
+PreviousCycle   = 3
+Weight          = 4
+WeightDeltaRate = 5
+Sequence        = 6
+```
+
+
 ```java
 Callback("Rendering", function() {
   var ViewAngles = Engine.GetViewAngles()
@@ -1783,6 +1796,42 @@ Callback("Rendering", function() {
 | Animation State | CPlayerAnimationState | Player Animation State |
 
 
+```
+CPlayerAnimationState : int ->
+GoalFeetYaw = 0
+AccelerationX = 1
+AccelerationY = 2
+AcceleratoinZ = 3
+AccelerationWeight = 4
+ActionWeightBiasLeft = 5
+InBalanceStarted = 6
+AimMatrixTransition = 7
+AimMatrixDelay = 8
+MaxPitch = 9
+MinPitch = 10
+MaxYaw = 11
+MinYaw = 12
+DuckAmmount = 13
+ModelIndex = 14
+SmoothedCameraZ = 15
+CrouchGroundFraction = 16
+AdditionalDuck = 17
+Pitch = 18
+Yaw = 19
+FootLerp = 20
+InAirSmoothModifier = 21
+JumpToFall = 22
+LadderSpeed = 23
+LadderWeight = 24
+LandAnimModifier = 25
+LastClientSideAnimationUpdateTimeDelta = 26
+MoveWeight = 27
+MoveYaw = 28
+MoveYawRelativeToMoveYawIdeal = 29
+MoveYawIdeal = 30
+```
+
+
 ```java
 Callback("Rendering", function() {
   var AnimState = Animation.GetAnimationState(Entity.GetLocalPlayer())
@@ -1795,3 +1844,63 @@ Callback("Rendering", function() {
 # <a name="15"></a>Prediction
 ---
 
+
+## Prediction.PredictNade
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Source | Vector3D | Source of the Grenade |
+| Velocity | Vector3D | Velocity of Thrower |
+| ViewAngles | Vector3D | Thrower View Angles |
+| Type | CWeaponItemDefinitionIndex : int | Grenade Type |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Predicted Nade | CGrenadePredictionReturn | Predicted Nade Return |
+
+
+```java
+CGrenadePredictionReturn -> First 3 In Array is EndPos the Rest per 3 is Path
+
+Helpers ->
+
+function GetGrenadePredictionEndPos(ret) {
+    return [ret[0],ret[1],ret[2]]
+}
+
+function GetGrenadePredictionPath(ret) {
+    pret = []
+    for(i = 3; i < ret.length; i += 3) {
+        if(i + 2 <= ret.length) {
+            pret.push([ret[i],ret[i + 1], ret[i + 2]]);
+        }
+    }
+    return pret;
+}
+
+
+CWeaponItemDefinitionIndex  : int ->
+WEAPON_FLASHBANG            : 43
+WEAPON_HEGRENADE            : 44
+WEAPON_SMOKEGRENADE         : 45
+WEAPON_MOLOTOV              : 46
+WEAPON_DECOY                : 47
+WEAPON_INC                  : 48
+
+```
+
+
+```java
+Callback("Rendering", function() {
+   var weapdefind = Entity.GetWeaponItemDefinitionIndex(LocalPlayer);
+   var VAng = Engine.GetViewAngles();
+   var Predicted = Prediction.PredictNade(Entity.GetEyePosition(LocalPlayer), Entity.GetVelocity(LocalPlayer),[VAng[0],VAng[1],0],weapdefind);
+});
+```
