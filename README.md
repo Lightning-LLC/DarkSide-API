@@ -2050,6 +2050,136 @@ WEAPON_DECOY                : 47
 WEAPON_INC                  : 48
 ```
 
+### CWeaponItemDefinitionIndex -> int
+```
+WEAPON_DEAGLE = 1,
+	WEAPON_DUALBERETTA = 2,
+	WEAPON_FIVESEVEN = 3,
+	WEAPON_GLOCK = 4,
+	WEAPON_AK47 = 7,
+	WEAPON_AUG = 8,
+	WEAPON_AWP = 9,
+	WEAPON_FAMAS = 10,
+	WEAPON_G3SG1 = 11,
+	WEAPON_GALIL = 13,
+	WEAPON_M249 = 14,
+	WEAPON_M4A1 = 16,
+	WEAPON_MAC10 = 17,
+	WEAPON_P90 = 19,
+	WEAPON_MP5SD = 23,
+	WEAPON_UMP45 = 24,
+	WEAPON_XM1014 = 25,
+	WEAPON_BIZON = 26,
+	WEAPON_MAG7 = 27,
+	WEAPON_NEGEV = 28,
+	WEAPON_SAWEDOFF = 29,
+	WEAPON_TEC9 = 30,
+	WEAPON_ZEUSX27 = 31,
+	WEAPON_USP = 32,
+	WEAPON_MP7 = 33,
+	WEAPON_MP9 = 34,
+	WEAPON_NOVA = 35,
+	WEAPON_P250 = 36,
+	WEAPON_SCAR20 = 38,
+	WEAPON_SG553 = 39,
+	WEAPON_SSG08 = 40,
+	WEAPON_KNIFE_GG = 41,
+	WEAPON_KNIFE = 42,
+	WEAPON_FLASHBANG = 43,
+	WEAPON_HEGRENADE = 44,
+	WEAPON_SMOKEGRENADE = 45,
+	WEAPON_MOLOTOV = 46,
+	WEAPON_DECOY = 47,
+	WEAPON_INC = 48,
+	WEAPON_C4 = 49,
+	WEAPON_HEALTHSHOT = 57,
+	WEAPON_KNIFE_T = 59,
+	WEAPON_M4A1S = 60,
+	WEAPON_USPS = 61,
+	WEAPON_CZ75 = 63,
+	WEAPON_REVOLVER = 64,
+	WEAPON_KNIFE_BAYONET = 500,
+	WEAPON_KNIFE_FLIP = 505,
+	WEAPON_KNIFE_GUT = 506,
+	WEAPON_KNIFE_KARAMBIT = 507,
+	WEAPON_KNIFE_M9_BAYONET = 508,
+	WEAPON_KNIFE_TACTICAL = 509,
+	WEAPON_KNIFE_FALCHION = 512,
+	WEAPON_KNIFE_SURVIVAL_BOWIE = 514,
+	WEAPON_KNIFE_BUTTERFLY = 515,
+	WEAPON_KNIFE_PUSH = 516
+```
+
+### Vector3D -> int[3]
+```
+Vector3D = [X, Y, Z]
+```
+
+### Vector2D -> int[2]
+```
+Vector2D = [X, Y]
+```
+
+### ColorRGBA -> int[4]
+```
+ColorRGBA = [R,G,B,A]
+```
+
+### ColorRGB -> int[3]
+```
+ColorRGB = [R,G,B]
+```
+
+
+### Buttons -> int
+```
+IN_ATTACK		  (1 << 0) 
+IN_JUMP			  (1 << 1)
+IN_DUCK			  (1 << 2)
+IN_FORWARD		(1 << 3)
+IN_BACK			  (1 << 4)
+IN_USE			  (1 << 5)
+IN_CANCEL		  (1 << 6)
+IN_LEFT			  (1 << 7)
+IN_RIGHT		  (1 << 8)
+IN_MOVELEFT		(1 << 9)
+IN_MOVERIGHT	(1 << 10)
+IN_ATTACK2		(1 << 11)
+IN_RUN			  (1 << 12)
+IN_RELOAD		  (1 << 13)
+IN_ALT1			  (1 << 14)
+IN_ALT2			  (1 << 15)
+IN_SCORE		  (1 << 16)  
+IN_SPEED		  (1 << 17)	
+IN_WALK			  (1 << 18)	
+IN_ZOOM			  (1 << 19)	
+IN_WEAPON1		(1 << 20)	
+IN_WEAPON2		(1 << 21)	
+IN_BULLRUSH		(1 << 22)
+IN_GRENADE1		(1 << 23)
+IN_GRENADE2		(1 << 24)	
+```
+
+### Fonts -> int
+```
+0: Corbel 12
+1: Corbel 11
+2: Corbel 14
+3: Calibri Bold 29
+4: Skeet Pixel 12
+5: Small Pixel 12
+6: Weapon Icon 28 [Undefeated]
+```
+
+### Render Flags -> int
+```
+RenderFlags::None       (1 << 0)
+RenderFlags::Outlined   (1 << 1)
+RenderFlags::CenteredX  (1 << 2)
+RenderFlags::CenteredY  (1 << 3)
+RenderFlags::Shadow     (1 << 4)
+```
+
 ### CPlayerAnimationState -> int 
 
 ```
@@ -2122,6 +2252,61 @@ Globals.Latency()             - float
 2 - Upmove
 ```
 
+### CBulletReturn -> auto
+```
+damage            : int
+penetration count : int
+endpos X          : float
+endpos Y : float
+endpos Z : float
+```
+
+### CTraceReturn -> auto
+```
+fraction : float
+contents : int
+endpos X : float
+endpos Y : float
+endpos Z : float
+```
+
+
+### Trace Mask -> unsigned int
+```
+CONTENTS_EMPTY                0
+CONTENTS_SOLID                0x1       
+CONTENTS_WINDOW               0x2
+CONTENTS_AUX                  0x4
+CONTENTS_GRATE                0x8
+CONTENTS_SLIME                0x10
+CONTENTS_WATER                0x20
+CONTENTS_BLOCKLOS             0x40 
+CONTENTS_OPAQUE               0x80 
+CONTENTS_TESTFOGVOLUME        0x100
+CONTENTS_UNUSED               0x200     
+CONTENTS_BLOCKLIGHT           0x400
+CONTENTS_TEAM1                0x800 
+CONTENTS_TEAM2                0x1000 
+CONTENTS_IGNORE_NODRAW_OPAQUE 0x2000
+CONTENTS_MOVEABLE             0x4000
+CONTENTS_AREAPORTAL           0x8000
+CONTENTS_PLAYERCLIP           0x10000
+CONTENTS_MONSTERCLIP          0x20000
+CONTENTS_CURRENT_0            0x40000
+CONTENTS_CURRENT_90           0x80000
+CONTENTS_CURRENT_180          0x100000
+CONTENTS_CURRENT_270          0x200000
+CONTENTS_CURRENT_UP           0x400000
+CONTENTS_CURRENT_DOWN         0x800000
+CONTENTS_ORIGIN               0x1000000 
+CONTENTS_MONSTER              0x2000000 
+CONTENTS_DEBRIS               0x4000000
+CONTENTS_DETAIL               0x8000000 
+CONTENTS_TRANSLUCENT          0x10000000
+CONTENTS_LADDER               0x20000000
+CONTENTS_HITBOX               0x40000000
+```
+
 
 [back to Contents](#-1)
 ---
@@ -2188,6 +2373,9 @@ Callback("Rendering", function() {
 ## CurrentCMD.GetButtons
 
 
+**Buttons Can be found in Data Structure**
+
+
 ### Returns:
 
 
@@ -2204,6 +2392,9 @@ Callback("Rendering", function() {
 
 
 ## CurrentCMD.SetButtons
+
+
+**Buttons can be found at Data Structure**
 
 
 ### Parameter:
@@ -2757,3 +2948,131 @@ Callback("Rendering", function() {
 ---
 # <a name="20"></a>Trace
 ---
+
+
+## Trace.GetPointContents
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Point | Vector3D | Point |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Contents | int | Point Contents |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Contents = Trace.GetPointContents([50,50,50])
+});
+```
+
+
+## Trace.Line
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start | Vector3D | Point |
+| End | Vector3D | Point |
+| Mask | int | Mask |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Trace Return | CTraceReturn | Trace Return |
+
+
+**CTraceReturn can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Trace = Trace.Line([50,50,50],[50,50,500],0x1)
+});
+```
+
+
+## Trace.Hitbox
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start | Vector3D | Point |
+| End | Vector3D | Point |
+| Hitbox Min | Vector3D | Size Min |
+| Hitbox Max | Vector3D | Size Max |
+| Mask | int | Mask |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Trace Return | CTraceReturn | Trace Return |
+
+
+**CTraceReturn can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Trace = Trace.Hitbox([50,50,50],[50,50,500],[-2,-2,-2],[2,2,2],0x1)
+});
+```
+
+## Trace.Bullet
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Target | CCSPlayer [int / entity] | Player |
+| Target Point | Vector3D | Point |
+| Specific HitGroup | int | Can be -1 if no Specific HitGroup |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Return | CBulletReturn | Prediction Return |
+
+
+**CBulletReturn can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Bullet = Trace.Bullet(Entity.GetLocalPlayer(),Entity.GetEyePosition(Entity.GetLocalPlayer()),-1);
+});
+```
+
+
