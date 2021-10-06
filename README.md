@@ -26,8 +26,10 @@ Official JavaScript API for DarkSide
 |[Animation](#14)|
 |[Prediction](#15)|
 |[Data Structures](#16)|
-|[Sound](#17)|
-
+|[Globals](#17)|
+|[CurrentCMD](#18)|
+|[Entity](#19)|
+|[Trace](#20)|
 
 ---
 
@@ -2009,7 +2011,6 @@ Misc.AutoPeek.Glow  - bool
 SkinChanger.Agents.T  - int
 SkinChanger.Agents.CT - int
 
-
 ```
 
 ### CBinds -> String
@@ -2030,6 +2031,12 @@ Binds.FakeDuck
 Binds.SlowMotion
 Binds.Thirdperson
 Binds.PeekAssist
+```
+
+### ClientClass -> auto
+
+```
+NetworkName : strin = 0
 ```
 
 ### CGrenadeItemDefinitionIndex  -> int 
@@ -2093,13 +2100,516 @@ WeightDeltaRate = 5
 Sequence        = 6
 ```
 
+### Global Variables -> auto
+
+```
+Globals.Realtime()            - float
+Globals.Framecount()          - int
+Globals.AbsoluteFrametime()   - float
+Globals.Curtime()             - float
+Globals.Frametime()           - float
+Globals.MaxClients()          - int
+Globals.Tickcount()           - int
+Globals.TickInterval()        - float
+Globals.Latency()             - float
+```
+
+### CCMDMovement -> int
+
+```
+0 - Forward
+1 - Side
+2 - Upmove
+```
+
 
 [back to Contents](#-1)
 ---
-# <a name="17"></a>Sound
+# <a name="17"></a>Globals
 ---
 
-## Sound.Play
+**No Parameters or Arguments**
+
+
+**Returns the Selected Variable**
+
+```
+Globals.Realtime()            - float
+Globals.Framecount()          - int
+Globals.AbsoluteFrametime()   - float
+Globals.Curtime()             - float
+Globals.Frametime()           - float
+Globals.MaxClients()          - int
+Globals.Tickcount()           - int
+Globals.TickInterval()        - float
+Globals.Latency()             - float
+```
+
+[back to Contents](#-1)
+---
+# <a name="18"></a>CurrentCMD
+---
+
+## CurrentCMD.GetTickcount
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Tickcount | int | Current User Command Tickcount |
+
+
+```java
+Callback("Rendering", function() {
+  var TickCount = CurrentCMD.GetTickcount();
+});
+```
+
+## CurrentCMD.SetTickcount
+
+
+### Parameter:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Tickcount | int | New Tickcount |
+
+
+```java
+Callback("Rendering", function() {
+  CurrentCMD.SetTickcount(9999999);
+});
+```
+
+
+## CurrentCMD.GetButtons
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Buttons | int | Current CMD Buttons |
+
+
+```java
+Callback("Rendering", function() {
+  var Buttons = CurrentCMD.GetButtons();
+});
+```
+
+
+## CurrentCMD.SetButtons
+
+
+### Parameter:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Buttons | int | New Buttons |
+
+
+```java
+Callback("Rendering", function() {
+  CurrentCMD.SetButtons(CurrentCMD.GetButtons() | (1 << 0));
+});
+```
+
+## CurrentCMD.GetViewAngles
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| ViewAngles | Vector3D | Current CMD ViewAngles [Silent] |
+
+
+```java
+Callback("Rendering", function() {
+  var ViewAngles = CurrentCMD.GetViewAngles();
+});
+```
+
+
+## CurrentCMD.SetViewAngles
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| ViewAngles | Vector3D | New ViewAngles [Always Silent] |
+
+
+```java
+Callback("Rendering", function() {
+  CurrentCMD.SetViewAngles([50,50,0]);
+});
+```
+
+
+## CurrentCMD.GetMovement
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Movement | CCMDMovement | Current User Movement |
+
+```
+CCMDMovement -> int
+0 - Forward
+1 - Side
+2 - Upmove
+
+```
+
+
+```java
+Callback("Rendering", function() {
+  var Movement = CurrentCMD.GetMovement();
+});
+```
+
+
+## CurrentCMD.SetMovement
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Movement | CCMDMovement | New User Movement |
+
+```
+CCMDMovement -> int
+0 - Forward
+1 - Side
+2 - Upmove
+
+```
+
+
+```java
+Callback("Rendering", function() {
+  CurrentCMD.SetMovement([0,0,0]);
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="19"></a>Entity
+---
+
+
+## Entity.GetLocalPlayer
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Local Player | CCSPlayer [int] | Local Player |
+
+
+
+```java
+Callback("Rendering", function() {
+  var LocalPlayer = Entity.GetLocalPlayer()
+});
+```
+
+
+## Entity.GetPlayers
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Players | CCSPlayer [int] [Array] | Returns all Players |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Players = Entity.GetPlayers()
+});
+```
+
+
+## Entity.GetEntities
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entities | CCSEntity [int] [Array] | Returns all Players |
+
+
+
+```java
+Callback("Rendering", function() {
+  var AllEntities = Entity.GetEntities()
+});
+```
+
+
+## Entity.GetVelocity
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Velocity | Vector3D | Velocity |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Velocity = Entity.GetVelocity(Entity.GetLocalPlayer());
+});
+```
+
+## Entity.GetOrigin
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Origin | Vector3D | Origin |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Origin = Entity.GetOrigin(Entity.GetLocalPlayer());
+});
+```
+
+
+
+## Entity.GetPlayerFromUserID
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| UserID | int | UserID |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+```java
+Callback("player_hurt", function() {
+  var Player = Entity.GetPlayerFromUserID(Event.GetInt("Attacker"));
+});
+```
+
+
+## Entity.GetProp
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+| Table | string | Table |
+| Element | string | Element |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Prop | auto | Property |
+
+
+**DO NOT USE, FUNCTION MAY CAUSE CRASHES**
+
+
+
+```java
+Callback("Rendering", function() {
+  var Health = Entity.GetProp(Entity.GetLocalPlayer(),"CBasePlayer", "m_iHealth");
+});
+```
+
+## Entity.SetProp
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+| Table | string | Table |
+| Element | string | Element |
+| New Value | auto | New Property Value |
+
+
+**DO NOT USE, FUNCTION MAY CAUSE CRASHES**
+
+
+```java
+Callback("Rendering", function() {
+  Entity.SetProp(Entity.GetLocalPlayer(),"CBasePlayer", "m_iHealth", 100);
+});
+```
+
+
+## Entity.GetEntitiesFromClassID
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| ClassID | int | ClassID |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+```java
+Callback("Rendering", function() {
+  var ent = Entity.GetEntitiesFromClassID(157); //gets all CBaseGrenadeProjectile Entities
+});
+```
+
+
+## Entity.GetClientClass
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| ClientClass | CEntityClientClass | Client Class |
+
+```
+ClientClass -> auto
+NetworkName : strin = 0
+```
+
+
+```java
+Callback("Rendering", function() {
+  var Clientname = Entity.GetClientClass(Entity.GetLocalPlayer())[0]; //string
+});
+```
+
+## Entity.IsScoped
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Scope State | bool | True if Scoped |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Scoped = Entity.IsScoped(Entity.GetLocalPlayer()); 
+});
+```
+
+## Entity.IsAlive
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Life State | bool | True if Alive |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Alive = Entity.IsAlive(Entity.GetLocalPlayer()); 
+});
+```
+
+
+## Entity.InAir
+
+
+**Prefer Cheat.InAir for Local Player**
 
 
 ### Parameters:
@@ -2107,13 +2617,143 @@ Sequence        = 6
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| Direction | string | SoundFile Location |
+| Entity | CCSPlayer [int] | Player |
 
-**Supported .wav, .mp3**
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Air State | bool | True if in Air |
+
 
 
 ```java
 Callback("Rendering", function() {
-  Sound.Play("C:\AnimeMoan.wav")
+  var InAir = Entity.InAir(Entity.GetLocalPlayer()); 
 });
 ```
+
+
+## Entity.GetWeaponItemDefinitionIndex
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Weapon Item Definition Index | CWeaponItemDefinitionIndex | Weapon Index |
+
+
+**CWeaponItemDefinitionIndex Can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Index = Entity.GetWeaponItemDefinitionIndex(Entity.GetLocalPlayer()); 
+});
+```
+
+
+## Entity.GetEyePosition
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Eye Position | Vector3D | Eye Position |
+
+
+
+```java
+Callback("Rendering", function() {
+  var EyePosition = Entity.GetEyePosition(Entity.GetLocalPlayer()); 
+});
+```
+
+
+## Entity.IsValid
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| State | bool | True if Entity is Valid |
+
+
+
+```java
+Callback("Rendering", function() {
+  var Valid = Entity.IsValid(Entity.GetLocalPlayer()); 
+});
+```
+
+
+## Entity.IsOpponentRelativeTo
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer [int] | Player |
+| Relative | CCSPlayer [int] | Player |
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| State | bool | True if Entity is Opponent |
+
+
+
+```java
+Callback("Rendering", function() {
+  var OpponentToLocalPlayer = Entity.IsOpponentRelativeTo(Entity.GetLocalPlayer(),Entity.GetLocalPlayer()); 
+});
+```
+
+
+
+[back to Contents](#-1)
+---
+# <a name="20"></a>Trace
+---
