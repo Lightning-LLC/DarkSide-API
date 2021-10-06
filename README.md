@@ -30,7 +30,8 @@ Official JavaScript API for DarkSide
 |[CurrentCMD](#18)|
 |[Entity](#19)|
 |[Trace](#20)|
-|[Callback](#21)|
+|[Input](#21)|
+|[Callback](#22)|
 
 ---
 
@@ -3086,7 +3087,95 @@ Callback("Rendering", function() {
 
 [back to Contents](#-1)
 ---
-# <a name="21"></a>Callback
+# <a name="21"></a>Input
+---
+
+
+
+## Input.IsKeyPressed
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Virtual Key | int | Key to Check |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| State | bool | True if Pressed |
+
+
+**Virtual Key Codes https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes**
+
+
+```java
+Callback("Rendering", function() {
+  var PressedMouse1 = Input.IsKeyPressed(0x01);
+});
+```
+
+
+## Input.IsKeyToggled
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Virtual Key | int | Key to Check |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| State | bool | Returns true Once if Key is Pressed |
+
+
+**Virtual Key Codes https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes**
+
+
+```java
+Callback("Rendering", function() {
+  var PressedMouse1Once = Input.IsKeyToggled(0x01);
+});
+```
+
+## Input.GetCursorPosition
+
+
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Cursor Position | Vector2D | Position of Cursor |
+
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var MousePosition = Input.GetCursorPosition()
+});
+```
+
+
+[back to Contents](#-1)
+---
+# <a name="22"></a>Callback
 ---
 
 ## Callback
