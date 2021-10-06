@@ -255,21 +255,21 @@ Ragebot.Weapons<0>.Hitboxes.Safepoint.Force   - int
 
 //Weapon Overrides
 
-Ragebot.Weapons<0>.OverrideDefault            - bool
-Ragebot.Weapons<0>.Hitboxes.Multipoint        - int
-Ragebot.Weapons<0>.PointScale                 - bool
-Ragebot.Weapons<0>.PointScale.Head            - int
-Ragebot.Weapons<0>.PointScale.Body            - int
-Ragebot.Weapons<0>.Damage.Minumum             - int
-Ragebot.Weapons<0>.Damage.Override            - int
-Ragebot.Weapons<0>.Hitchance                  - int 
-Ragebot.Weapons<0>.Hitchance.Doubletap        - int
-Ragebot.Weapons<0>.AutoStop                   - bool
-Ragebot.Weapons<0>.AutoStop.Options           - int
-Ragebot.Weapons<0>.MaxMissesBeforeSafepoint   - int
-Ragebot.Weapons<0>.Hitboxes                   - int
-Ragebot.Weapons<0>.Hitboxes.Safepoint.Prefer  - int
-Ragebot.Weapons<0>.Hitboxes.Safepoint.Force   - int
+Ragebot.Weapons<1>.OverrideDefault            - bool
+Ragebot.Weapons<1>.Hitboxes.Multipoint        - int
+Ragebot.Weapons<1>.PointScale                 - bool
+Ragebot.Weapons<1>.PointScale.Head            - int
+Ragebot.Weapons<1>.PointScale.Body            - int
+Ragebot.Weapons<1>.Damage.Minumum             - int
+Ragebot.Weapons<1>.Damage.Override            - int
+Ragebot.Weapons<1>.Hitchance                  - int 
+Ragebot.Weapons<1>.Hitchance.Doubletap        - int
+Ragebot.Weapons<1>.AutoStop                   - bool
+Ragebot.Weapons<1>.AutoStop.Options           - int
+Ragebot.Weapons<1>.MaxMissesBeforeSafepoint   - int
+Ragebot.Weapons<1>.Hitboxes                   - int
+Ragebot.Weapons<1>.Hitboxes.Safepoint.Prefer  - int
+Ragebot.Weapons<1>.Hitboxes.Safepoint.Force   - int
 
 //Exploits
 
@@ -282,6 +282,11 @@ Exploits.IdealTick          - bool
 Exploits.IdealTick.Slow     - bool
 Exploits.Teleport.Boost     - bool
 Exploits.DefensiveFlags     - int
+
+//Visuals
+
+Visuals.Keybinds  - bool
+Visuals.Watermark - bool
 
 //AntiAim
 
@@ -308,6 +313,7 @@ Misc.BunnyHop       - bool
 Misc.AutoStrafe     - bool
 Misc.Knifebot       - bool
 Misc.AntiUntrusted  - bool
+Misc.AutoPeek.Glow  - bool
 
 //SkinChanger
 
@@ -330,6 +336,8 @@ Binds.FakeDuck
 Binds.SlowMotion
 Binds.Thirdperson
 Binds.PeekAssist
+
+
 
 ```
 
