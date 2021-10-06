@@ -18,6 +18,9 @@ Official JavaScript API for DarkSide
 |[Event](#6)|
 |[Sound](#7)|
 |[Cheat](#8)|
+|[Ragebot](#9)|
+|[AntiAim](#10)|
+|[Fakelag](#11)|
 
 ---
 
@@ -1331,4 +1334,178 @@ Callback("Rendering", function() {
 
 [back to Contents](#-1)
 ---
+# <a name="9"></a>Ragebot
+---
 
+## Ragebot.GetCurrentDamage
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Min Damage | int | Current Ragebot Aiming Damage |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var RagebotShotDmg = Ragebot.GetCurrentDamage()
+});
+```
+
+[back to Contents](#-1)
+---
+# <a name="10"></a>AntiAim
+---
+
+## AntiAim.GetDesyncDelta
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Max Desync | float | Local Player Max Desync |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var MaxDesync = Ragebot.GetMaxDesync();
+});
+```
+
+
+## AntiAim.GetFakeRotation
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Fake Rotation | float | Local Player Fake Rotation |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var FakeRotation = AntiAim.GetFakeRotation();
+});
+```
+
+## AntiAim.GetRealRotation
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Real Rotation | float | Local Player Real Rotation |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var RealRotation = AntiAim.GetRealRotation();
+});
+```
+
+## AntiAim.FiredShot
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Shot Bullet | bool | Did Cheat shoot a Bullet |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var RagebotShot = AntiAim.FiredShot()
+});
+```
+
+## AntiAim.IsPeeking
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Peek State | bool | True if Peeking Opponent |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Peeking = AntiAim.IsPeeking()
+});
+```
+
+## AntiAim.GetInverterState
+
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Inverter State | bool | State of AntiAim Inverter |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  var Inverter = AntiAim.GetInverterState();
+});
+```
+
+## AntiAim.SetInverterState
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Inverter State | bool | New Inverter State |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  AntiAim.SetInverterState(true);
+});
+```
+
+## AntiAim.OverrideDesync
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Desync Delta | float | Overriden Desync Delta |
+
+
+
+
+```java
+Callback("Rendering", function() {
+  AntiAim.OverrideDesync(60 * 2) //exactly the same as 60 desync delta extend lby
+});
+```
+
+[back to Contents](#-1)
+---
+# <a name="11"></a>Fakelag
+---
