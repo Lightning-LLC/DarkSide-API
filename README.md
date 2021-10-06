@@ -30,6 +30,7 @@ Official JavaScript API for DarkSide
 |[CurrentCMD](#18)|
 |[Entity](#19)|
 |[Trace](#20)|
+|[Callback](#21)|
 
 ---
 
@@ -2307,6 +2308,14 @@ CONTENTS_LADDER               0x20000000
 CONTENTS_HITBOX               0x40000000
 ```
 
+### Callbacks -> string
+
+```
+Rendering  - On Rendering
+CreateMove - On CreateMove
+EventName  - On EventName [Example: bullet_impact - On BulletImpact]
+```
+
 
 [back to Contents](#-1)
 ---
@@ -3074,6 +3083,47 @@ Callback("Rendering", function() {
   var Bullet = Trace.Bullet(Entity.GetLocalPlayer(),Entity.GetEyePosition(Entity.GetLocalPlayer()),-1);
 });
 ```
+
+[back to Contents](#-1)
+---
+# <a name="21"></a>Callback
+---
+
+## Callback
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Callback Name | string | Callback Name |
+| Callback Function | function | function to Callback |
+
+
+**Callbacks can be found in Data Structures**
+
+```
+Callbacks
+Rendering  - On Rendering
+CreateMove - On CreateMove
+EventName  - On EventName [Example: bullet_impact - On BulletImpact]
+```
+
+
+```java
+Callback("Rendering", function() {
+  )
+});
+
+function OnRender() {
+
+}
+Callback("Rendering", OnRender)
+```
+
 
 [back to Contents](#-1)
 ---
