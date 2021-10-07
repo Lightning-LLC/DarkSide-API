@@ -1274,6 +1274,30 @@ Callback("Rendering", function() {
 ```
 
 
+## Cheat.GetMissedShots
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Entity | CCSPlayer | Missed shots on Player |
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Missed Shots | int | Missed shots on Player |
+
+
+
+```java
+Callback("Rendering", function() {
+  var MissedShotsOnLocalPlayer = Cheat.GetMissedShots(Entity.GetLocalPlayer())
+});
+```
+
+
 
 ## Cheat.ExecuteClientCommand
 
