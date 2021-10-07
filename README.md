@@ -2294,6 +2294,16 @@ endpos Z : float
 
 ### CTraceReturn -> auto
 ```
+fraction   : float
+hit entity : int // -1 if did not hit entity
+contents   : int
+endpos X   : float
+endpos Y   : float
+endpos Z   : float
+```
+
+### CWorldTraceReturn -> auto
+```
 fraction : float
 contents : int
 endpos X : float
@@ -3042,6 +3052,8 @@ Callback("Rendering", function() {
 
 **CTraceReturn can be found in Data Structures**
 
+**Entity is -1 if did not hit entity**
+
 
 ```java
 Callback("Rendering", function() {
@@ -3076,12 +3088,84 @@ Callback("Rendering", function() {
 
 **CTraceReturn can be found in Data Structures**
 
+**Entity is -1 if did not hit entity**
+
 
 ```java
 Callback("Rendering", function() {
   var Trace = Trace.Hitbox([50,50,50],[50,50,500],[-2,-2,-2],[2,2,2],0x1)
 });
 ```
+
+
+## Trace.LineWorldOnly
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start | Vector3D | Point |
+| End | Vector3D | Point |
+| Mask | int | Mask |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Trace Return | CWorldTraceReturn | Trace Return |
+
+**Use only for World**
+
+
+**CWorldTraceReturn can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Trace = Trace.LineWorldOnly([50,50,50],[50,50,500],0x1)
+});
+```
+
+## Trace.HitboxWorldOnly
+
+
+
+
+### Parameters:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start | Vector3D | Point |
+| End | Vector3D | Point |
+| Hitbox Min | Vector3D | Size Min |
+| Hitbox Max | Vector3D | Size Max |
+| Mask | int | Mask |
+
+### Returns:
+
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Trace Return | CWorldTraceReturn | Trace Return |
+
+**Use only for World**
+
+
+**CWorldTraceReturn can be found in Data Structures**
+
+
+```java
+Callback("Rendering", function() {
+  var Trace = Trace.HitboxWorldOnly([50,50,50],[50,50,500],[-2,-2,-2],[2,2,2],0x1)
+});
+```
+
 
 ## Trace.Bullet
 
