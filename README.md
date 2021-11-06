@@ -1048,7 +1048,7 @@ Callback("Rendering", function() {
 ```
 
 
-## Rendering.Triangle    
+## Rendering.GradientRectangle    
 
 
 ### Parameters:
@@ -1088,7 +1088,7 @@ Callback("Rendering", function() {
 
 ```java
 Callback("Rendering", function() {
-  Rendering.FilledArc([50,50],40.0,[255,255,255,255],40)
+  Rendering.Circle([50,50],40.0,[255,255,255,255],40)
 });
 ```
 
@@ -1108,7 +1108,7 @@ Callback("Rendering", function() {
 
 ```java
 Callback("Rendering", function() {
-  Rendering.FilledArc([[50,50],40.0,[255,255,255,255],40)
+  Rendering.FilledCircle([50,50],40.0,[255,255,255,255],40)
 });
 ```
 
@@ -1283,6 +1283,36 @@ Callback("Rendering", function() {
 });
 ```
 
+
+## Rendering3D.Beam
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Start Pos | Vector3D | Start Position |
+| End Pos | Vector3D | End Position |
+| Flags | int | Beam Flags |
+| Segments | int | Beam Segments |
+| Speed | float | Sprite Speed |
+| Render Rate | float | Beam Render Rate |
+| Amplitude | float | Beam Amplitude |
+| Fade Length | float | Fade Length |
+| Start Width | float | Start Width of Beam |
+| End Width | float | End Width of Beam |
+| Time | float | Time before Beam is Removed |
+| Haloscale | float | Halescale of Beam |
+| Sprite Name | String | Sprite Name of Beam |
+| Color | color | Color of Beam |
+
+
+
+```java
+Callback("Rendering", function() {
+  Rendering3D.Beam([50,50,50], [100,50,50], 0x00000100 | 0x00000200 | 0x00008000, 2, 0.00002,0,2,0,2,2, 4,0,"sprites/purplelaser1.vmt",[170,170,255,255])
+});
+```
 
 
 
