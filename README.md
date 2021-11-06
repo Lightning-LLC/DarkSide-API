@@ -705,6 +705,21 @@ Callback("Rendering", function() {
 });
 ```
 
+## Exploit.GetCharge
+
+
+### Returns:
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Enabled | bool | Exploit Recharged |
+
+
+```java
+Callback("Rendering", function() {
+  var Recharged = Exploit.GetCharge()
+});
+```
+
 
 [back to Contents](#-1)
 ---
@@ -882,6 +897,175 @@ Callback("Rendering", function() {
 ```java
 Callback("Rendering", function() {
   Rendering.FilledArc([50,50],40.0,0,3.14,40,[255,255,255,255])
+});
+```
+
+## Rendering.LockRectangle 
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Position of Locked Rectangle |
+| Size | Vector2D | Size of Locked Rectangle |
+| Intersect | bool | Intersect with Current Clip Rectangle |
+
+```java
+Callback("Rendering", function() {
+  Rendering.LockRectangle([0,0], Rendering.GetScreenSize(), true)
+});
+```
+
+## Rendering.UnlockRectangle 
+
+
+### Unlocks the Last Locked Rectangle
+
+```java
+Callback("Rendering", function() {
+  Rendering.LockRectangle([20,20], [50,50], true)
+  Rendering.FilledRectangle([0,0],[80,80],[34, 34, 38, 255], 17); //will not render before [20,20] and not over [50,50]
+  Rendering.UnlockRectangle()
+});
+```
+
+
+## Rendering.ProfilePicture 
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Key | int | Key of Steam Profile Picuture [Can use Entity] |
+| Pos | Vector2D | Position of Locked Rectangle |
+| Size | Vector2D | Size of Locked Rectangle |
+| Color | int Array[4] | Color |
+| Rounding | float | Rounding of Profile Picture |
+
+```java
+Callback("Rendering", function() {
+  if(!Globals.Alive())
+    return;
+  Rendering.ProfilePicture(Entity.GetLocalPlayer(),[30,30],[20,20], [255,255,255,255], 0)
+});
+```
+
+## Rendering.CalculateTextSize  
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Text | string | Text |
+| Font | int    | Font ID |
+
+### Returns:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| size | Vector2D | size |
+
+```java
+Callback("Rendering", function() {
+  Rendering.CalculateTextSize("Test123", 0)
+});
+```
+
+## Rendering.PolyObject  
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Points | float Array | do not seperate vectors |
+| Color | int Array[4] | Color |
+
+```java
+Callback("Rendering", function() {
+  Rendering.PolyObject([0,0,30,30,80,80], [255,255,255,255]) //will make a poly object with points [0,0], [30,30], [80,80]
+});
+```
+
+## Rendering.PolyLine  
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Points | float Array | do not seperate vectors |
+| Color | int Array[4] | Color |
+| Closed | bool | Close PolyLine |
+
+```java
+Callback("Rendering", function() {
+  Rendering.PolyLine([0,0,30,30,80,80], [255,255,255,255], true) //will make a poly line with points [0,0], [30,30], [80,80] and  is closed
+  Rendering.PolyLine([0,0,30,30,60,60], [255,255,255,255], false) //will make a poly line with points [0,0], [30,30], [60,60] and is not closed
+});
+```
+
+## Rendering.FilledTriangle    
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Point1 | Vector2D | Position |
+| Point2 | Vector2D | Position |
+| Point3 | Vector2D | Position |
+| Color | int Array[4] | Color |
+
+```java
+Callback("Rendering", function() {
+  Rendering.FilledTriangle([50,50], [70,70], [50, 70], [255,255,255,255]) 
+
+});
+```
+
+## Rendering.Triangle     
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Point1 | Vector2D | Position |
+| Point2 | Vector2D | Position |
+| Point3 | Vector2D | Position |
+| Color | int Array[4] | Color |
+| Thickness | float | thickness |
+
+```java
+Callback("Rendering", function() {
+  Rendering.Triangle([50,50], [70,70], [50, 70], [255,255,255,255], 1.0) 
+
+});
+```
+
+
+## Rendering.Triangle    
+
+
+### Parameters:
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| Pos | Vector2D | Position |
+| Size | Vector2D | Size |
+| Top Left | int Array[4] | Color |
+| Top Right | int Array[4] | Color |
+| Bottom Left | int Array[4] | Color |
+| Bottom Right | int Array[4] | Color |
+
+```java
+Callback("Rendering", function() {
+  Rendering.GradientRectangle([50,50], [50,50], [255,255,255,255],  [255,255,255,255], [255,255,255,255], [255,255,255,255]) 
+
 });
 ```
 
